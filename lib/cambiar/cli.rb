@@ -11,12 +11,12 @@ module Cambiar
         OptionParser.new do |opts|
           opts.banner = "Usage: cambiar -[i|c] <filename> s/<from>/<to>/"
 
-          opts.on("-i", "--identifier", "Substitute identifers") do |i|
-            options[:identifier] = i
+          opts.on("-i", "--on_ident", "Substitute identifers") do |i|
+            options[:on_ident] = i
           end
 
-          opts.on("-c", "--constant", "Substitute constants") do |c|
-            options[:constant] = c
+          opts.on("-c", "--on_const", "Substitute constants") do |c|
+            options[:on_const] = c
           end
         end.parse!
         options
