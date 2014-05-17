@@ -18,7 +18,60 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
+## Examples
+
+```
+cambiar -i "s/reader/fast_reader/" test.rb
+```
+
+before
+``` ruby
+class Reader
+  READER = 'reader'
+
+  def my_fast_reader
+    puts "Reader reader"
+  end 
+end
+```
+
+after
+``` ruby
+class Reader
+  READER = 'reader'
+
+  def my_reader
+    puts "Reader reader"
+  end 
+end
+```
+
+```
+cambiar -c "s/READER/FAST_READER/" test.rb
+```
+
+before
+``` ruby
+class Reader
+  READER = 'reader'
+
+  def my_reader
+    puts "READER Reader reader"
+  end
+end
+```
+
+after
+``` ruby
+class Reader
+  FAST_READER = 'reader'
+
+  def my_reader
+    puts "READER Reader reader"
+  end 
+end
+```
 
 ## Contributing
 
