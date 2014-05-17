@@ -1,6 +1,6 @@
 # Cambiar
 
-TODO: Write a gem description
+It's easy to accidently change something with find/replace that you didn't mean to change. Cambiar makes find/replace safer by replacing only certain types using the Ruby AST.
 
 ## Installation
 
