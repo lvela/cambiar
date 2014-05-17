@@ -30,7 +30,7 @@ before
 class Reader
   READER = 'reader'
 
-  def my_fast_reader
+  def my_reader
     puts "Reader reader"
   end 
 end
@@ -41,7 +41,7 @@ after
 class Reader
   READER = 'reader'
 
-  def my_reader
+  def my_fast_reader
     puts "Reader reader"
   end 
 end
