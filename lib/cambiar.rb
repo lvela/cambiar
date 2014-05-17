@@ -17,26 +17,26 @@ module Cambiar
 
     def initialize(opts)
       @opts = opts
-      @lexed =  Ripper.lex(File.read(opts[:filename]))
     end
 
     def substitute
-      substitute_lexed
-
-      rewrite_file
+      opts[:filenames].each do |filename|
+        lexed =  Ripper.lex(File.read(filename))
+        substitute_lexed(lexed)
+        rewrite_file(lexed, filename)
+      end
     end
 
   private
-    def substitute_lexed
-      # TODO: shouldn't be dependent on arg position
-      s, from, to = ARGV[1].split '/'
+    def substitute_lexed(lexed)
+      s, from, to = opts[:substitution].split '/'
       lexed.each do |x| 
         x[2].sub!(/#{from}/, to) if substitute?(x[1])
       end
     end
 
-    def rewrite_file
-      File.open('test.rb', 'w') do |file|
+    def rewrite_file(lexed, filename)
+      File.open(filename, 'w') do |file|
         lexed.each do |i|
           file.write i[2]
         end
