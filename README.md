@@ -17,10 +17,15 @@ Or install it yourself as:
     $ gem install cambiar
 
 ## Usage
-
+```
+Usage: cambiar [-ic] "s/<from>/<to>/" [file ...]
+    -i, --on_ident                   Substitute identifers
+    -c, --on_const                   Substitute constants
+```
 
 ## Examples
 
+### Change identifiers
 ```
 cambiar -i "s/reader/fast_reader/" test.rb
 ```
@@ -47,6 +52,7 @@ class Reader
 end
 ```
 
+### Change constants
 ```
 cambiar -c "s/READER/FAST_READER/" test.rb
 ```
